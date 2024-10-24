@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <title>简单转盘</title>
+    <title>生日转盘</title>
     <style>
       * {
         margin: 0;
@@ -255,10 +255,7 @@
         isGoing: false, // 游戏是否开始
 
         init () {
-          if (!this.lottery.length) {
-            this.pointer.style.display = 'none';
-            throw new Error('请设置中奖结果数据');
-          }
+         
 
           // 初始化灯
           let lightFragment = document.createDocumentFragment();
@@ -315,7 +312,6 @@
           let res = this.lottery.filter(item => {
             return randomRate >= item.min && randomRate < item.max;
           })[0];
-          // 这儿可以根据实际情况，可重置中奖结果
 
           // 2. 计算旋转角度, 需要多转5圈，达转1圈用时1s, 到旋转的效果
           let rotateItemDeg = (res.location - 1) * (360 / this.lottery.length); // 每个item旋转角度, 第一个不用旋转
